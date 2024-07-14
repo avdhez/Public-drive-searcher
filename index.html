@@ -11,14 +11,14 @@
   font-family: "jost";
   font-weight: 900;
       background-color: black;
-      display: flex;
-      flex-direction: column;
+      display: block;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 95%;
+      overflow: hidden;
       margin: 0;
     }
-    p {
+    h1 {
   font-family: "jost";
   font-weight: 900;
       font-height: 16px;
@@ -83,7 +83,7 @@ input:focus {
   </style>
 </head>
 <body>
-  <p>Public Drive Search</p>
+  <h1>Public Drive Search</h1>
   <input type="text" id="query" placeholder="Enter movie title" onkeydown="handleKeyDown(event)">
   <!-- Removed the search button -->
 
