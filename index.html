@@ -120,10 +120,11 @@
   <input type="text" id="query" placeholder="Enter the filename" onkeydown="handleKeyDown(event)">
   <ch>
   <select id="domain">
+  <option value="all">All</option>
   <option value="drive">Google Drive</option>
   <option value="pixeldrain">PixelDrain</option>
   <option value="gofile">Gofile</option>
-  <option value="all">All</option>
+  <option value="megaup">Mega Up</option>
 </select><button onclick="search()">Search</button></ch>
   <ul id="results"></ul>
 
@@ -157,8 +158,12 @@
     if (domain === 'gofile') {
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:gofile.io+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
+    if (domain === 'megaup') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:megaup.net+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
     if (domain === 'all' || domain === '') { // Search all domains if 'all' selected or no specific domain selected
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:pixeldrain.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:megaup.net+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:drive.google.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:gofile.io+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
