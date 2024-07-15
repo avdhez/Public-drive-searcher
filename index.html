@@ -122,6 +122,10 @@
   <ch>
   <select id="domain">
   <option value="all">All</option>
+  <option value="upstream">Upstream</option>
+  <option value="kmhd">KMHD</option>
+  <option value="Katfile">Katfile</option>
+  <option value="filesdl">FilesDl</option>
   <option value="drive">Google Drive</option>
   <option value="pixeldrain">PixelDrain</option>
   <option value="gofile">Gofile</option>
@@ -153,20 +157,36 @@
     if (domain === 'drive') {
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:drive.google.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
+    if (domain === 'Upstream') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:upstream.to+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
+     if (domain === 'kmhd') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:kmhd.net+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
     if (domain === 'pixeldrain') {
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:pixeldrain.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
     if (domain === 'gofile') {
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:gofile.io+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
+    if (domain === 'filesdl') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:filesdl.in+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
+    if (domain === 'Katfile') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:katfile.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
     if (domain === 'megaup') {
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:megaup.net+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
     if (domain === 'all' || domain === '') { // Search all domains if 'all' selected or no specific domain selected
+     searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:upstream.to+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:kmhd.net+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:pixeldrain.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:megaup.net+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:drive.google.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:gofile.io+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:katfile.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:filesdl.in+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
 
     const results = document.getElementById('results');
