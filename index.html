@@ -10,6 +10,7 @@
     body {
       font-family: "jost";
       font-weight: 900;
+      top: 50;
       background-color: black;
       display: flex;
       flex-direction: column;
@@ -122,6 +123,9 @@
   <ch>
   <select id="domain">
   <option value="all">All</option>
+  <option value="downloadwella">DownloadWella</option>
+  <option value="vidhide">vidHide</option>
+  <option value="gdflix">GDFlix</option>
   <option value="netnaijafiles">NetnaijaFile</option>
   <option value="sabishare">SabiShare</option>
   <option value="upstream">Upstream</option>
@@ -157,8 +161,17 @@
     const searchEngineId = 'f66e4858ff17f49aa';
 
     let searchUrls = [];
+      if (domain === 'downloadwella') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:downloadwella.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
     if (domain === 'drive') {
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:drive.google.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
+      if (domain === 'vidhide') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:vidhide.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+    }
+      if (domain === 'gdflix') {
+      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:gdflix.cfd+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
     if (domain === 'Upstream') {
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:upstream.to+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
@@ -188,6 +201,9 @@
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:megaup.net+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
     }
     if (domain === 'all' || domain === '') { // Search all domains if 'all' selected or no specific domain selected
+     searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:downloadwella.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:vidhide.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
+       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:gdflix.cfd+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:sabishare.com+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
       searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:netnaijafiles.xyz+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
      searchUrls.push(`https://www.googleapis.com/customsearch/v1?q=site:upstream.to+${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`);
